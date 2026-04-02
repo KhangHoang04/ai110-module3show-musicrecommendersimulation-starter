@@ -1,19 +1,19 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Moonlight Sonata Remix,Clara Keys,classical,sad,0.25,66,0.30,0.20,0.95
-12,Downtown Bounce,MC Skyline,hip-hop,energetic,0.88,140,0.72,0.91,0.08
-13,Backroad Summer,Dusty Lane,country,happy,0.65,104,0.78,0.60,0.82
-14,Velvet Nights,Soulshine,r&b,romantic,0.55,92,0.74,0.70,0.45
-15,Neon Pulse,Circuit Wave,electronic,energetic,0.95,150,0.68,0.93,0.03
-16,Iron Thunder,Blackforge,metal,intense,0.98,170,0.35,0.55,0.06
-17,Lavender Fields,Dreamcatcher,ambient,dreamy,0.30,68,0.62,0.30,0.88
-18,Late Night Letters,Indigo Parade,indie pop,sad,0.45,88,0.38,0.48,0.55
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,popularity,release_decade,mood_tag,lyrics_language,instrumentalness
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,85,2020,euphoric,en,0.10
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,42,2020,nostalgic,en,0.75
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,68,2010,aggressive,en,0.30
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,35,2020,nostalgic,en,0.80
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,91,2020,euphoric,en,0.05
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,28,2020,ethereal,en,0.90
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,55,2000,warm,en,0.60
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,72,2010,nostalgic,en,0.40
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,38,2020,focused,en,0.85
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,64,2020,uplifting,en,0.15
+11,Moonlight Sonata Remix,Clara Keys,classical,sad,0.25,66,0.30,0.20,0.95,45,1800,melancholy,de,0.95
+12,Downtown Bounce,MC Skyline,hip-hop,energetic,0.88,140,0.72,0.91,0.08,78,2020,aggressive,en,0.05
+13,Backroad Summer,Dusty Lane,country,happy,0.65,104,0.78,0.60,0.82,52,2010,warm,en,0.20
+14,Velvet Nights,Soulshine,r&b,romantic,0.55,92,0.74,0.70,0.45,60,2020,sensual,en,0.25
+15,Neon Pulse,Circuit Wave,electronic,energetic,0.95,150,0.68,0.93,0.03,70,2020,euphoric,en,0.02
+16,Iron Thunder,Blackforge,metal,intense,0.98,170,0.35,0.55,0.06,58,2000,aggressive,en,0.15
+17,Lavender Fields,Dreamcatcher,ambient,dreamy,0.30,68,0.62,0.30,0.88,22,2020,ethereal,en,0.92
+18,Late Night Letters,Indigo Parade,indie pop,sad,0.45,88,0.38,0.48,0.55,48,2020,melancholy,en,0.35
