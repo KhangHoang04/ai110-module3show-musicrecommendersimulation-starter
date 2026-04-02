@@ -142,17 +142,18 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
-### Terminal Output
-
-![Terminal output showing recommendations for all five profiles](terminal-output.png)
-
 ### Multi-Profile Stress Test
 
 Five profiles were tested with the 9-factor balanced scoring mode and diversity ON (see `src/main.py`):
 
+![Chill Lofi, High-Energy Pop, and Deep Intense Rock profiles](profiles-lofi-pop-rock.png)
+
 1. **Chill Lofi Listener** (lofi / chill / 0.4 energy / acoustic / tags: nostalgic, focused) — Top result: Midnight Coding (6.11). Hit on all 9 factors. Results feel exactly right for a study-music listener.
 2. **High-Energy Pop Fan** (pop / happy / 0.85 energy / tags: euphoric, uplifting) — Top result: Sunrise City (5.42). Gym Hero ranked #2 with a diversity genre-repeat penalty applied.
 3. **Deep Intense Rock** (rock / intense / 0.9 energy / tags: aggressive) — Top result: Storm Runner (5.39). Only one rock song in the catalog, but Iron Thunder and Gym Hero fill slots 2–3 on mood/energy match.
+
+![Contradictory and Ghost Genre profiles, plus scoring mode comparison](profiles-contradictory-ghost-modes.png)
+
 4. **Contradictory** (pop / sad / 0.9 energy / acoustic / tags: melancholy, euphoric) — Top result: Gym Hero (4.44). Exposed genre dominance: a gym anthem ranked above actually sad songs like Late Night Letters and Moonlight Sonata Remix.
 5. **Ghost Genre** (reggaeton / happy / 0.7 energy / tags: warm, uplifting) — Top result: Rooftop Lights (3.33). No genre matches, so the system fell back to mood + energy + mood tag scoring.
 
@@ -169,6 +170,8 @@ In mood-first mode, Spacewalk Thoughts (ambient/chill) jumped into the top 3 bec
 
 ### Diversity Penalty Demo (Chill Lofi, balanced)
 
+![Scoring modes and diversity comparison](modes-diversity-comparison.png)
+
 | Rank | Diversity OFF (score) | Diversity ON (score) | Change |
 |------|-----------------------|----------------------|--------|
 | 1 | Midnight Coding (6.11) | Midnight Coding (6.11) | — |
@@ -178,6 +181,8 @@ In mood-first mode, Spacewalk Thoughts (ambient/chill) jumped into the top 3 bec
 | 5 | Lavender Fields (2.47) | Lavender Fields (1.97) | genre repeat -0.50 |
 
 Without diversity, LoRoom appears twice and lofi dominates all top 3. With diversity ON, repeated artists and genres are penalized, narrowing the gap and giving non-lofi songs a better chance.
+
+![Diversity ON detail — artist and genre repeat penalties visible in reasons](diversity-on-detail.png)
 
 ### Weight Experiment: Genre Halved, Energy Doubled
 
