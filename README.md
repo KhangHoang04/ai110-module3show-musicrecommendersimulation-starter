@@ -116,6 +116,10 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
+### Terminal Output
+
+![Terminal output showing recommendations for all five profiles](Screenshot%202026-04-01%20at%2010.25.20%20PM.png)
+
 ### Multi-Profile Stress Test
 
 Five profiles were tested (see `src/main.py`):
