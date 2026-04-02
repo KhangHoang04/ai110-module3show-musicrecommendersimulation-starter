@@ -17,17 +17,65 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+### Real-World Recommendations vs. Our Simulation
 
-Some prompts to answer:
+Real-world platforms like Spotify and YouTube combine collaborative filtering (recommending what similar users enjoyed), content-based filtering (matching audio features like tempo and energy), and deep learning trained on billions of listening signals. Our simulation focuses on the content-based approach: we score each song by how well its attributes match a user's taste profile, keeping the system simple, transparent, and explainable.
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+### Song Features
 
-You can include a simple diagram or bullet list if helpful.
+Each `Song` uses: **genre**, **mood**, **energy** (0.0–1.0), **tempo_bpm**, **valence** (0.0–1.0), **danceability** (0.0–1.0), and **acousticness** (0.0–1.0), along with **id**, **title**, and **artist**.
+
+### UserProfile Features
+
+Each `UserProfile` stores: **favorite_genre**, **favorite_mood**, **target_energy** (0.0–1.0), and **likes_acoustic** (boolean).
+
+### Algorithm Recipe
+
+Each song is scored against the user profile using these factors:
+
+| Factor | Condition | Points |
+|--------|-----------|--------|
+| Genre match | `song.genre == favorite_genre` | +2.0 |
+| Mood match | `song.mood == favorite_mood` | +1.0 |
+| Energy similarity | `1.0 - abs(song.energy - target_energy)` | +0.0 to +1.0 |
+| Acousticness bonus | `likes_acoustic AND acousticness > 0.6` | +0.5 |
+
+**Max score: 4.5 | Min score: 0.0**
+
+Songs are sorted by descending score and the top *k* are returned.
+
+### Recommendation Flow
+
+```mermaid
+flowchart TD
+    A[User Profile] --> B[Load Song Catalog from CSV]
+    B --> C[For each song in catalog]
+    C --> D{Genre match?}
+    D -- Yes --> E[+2.0 points]
+    D -- No --> F[+0.0]
+    E --> G{Mood match?}
+    F --> G
+    G -- Yes --> H[+1.0 points]
+    G -- No --> I[+0.0]
+    H --> J[Energy similarity: 1.0 - |song.energy - target_energy|]
+    I --> J
+    J --> K{likes_acoustic AND acousticness > 0.6?}
+    K -- Yes --> L[+0.5 points]
+    K -- No --> M[+0.0]
+    L --> N[Sum = total score for song]
+    M --> N
+    N --> O{More songs?}
+    O -- Yes --> C
+    O -- No --> P[Sort songs by score descending]
+    P --> Q[Return top K songs]
+```
+
+### A Note on Potential Biases
+
+- **Genre dominance**: The genre match bonus (+2.0) outweighs all other factors combined (max +2.5 without genre). A song in the user's favorite genre will almost always rank above one that is not, regardless of mood, energy, or acousticness fit.
+- **Binary matching**: Genre and mood use exact string matching with no partial credit. A user who likes "lofi" gets zero genre credit for "ambient" or "chill hop", even though those genres are closely related.
+- **Small catalog bias**: With only 18 songs, some genres have just one representative. The system cannot distinguish between disliking a genre and simply not having good options in that genre.
+- **Arbitrary acousticness threshold**: The 0.6 cutoff for the acoustic bonus is a hard boundary. A song with 0.59 acousticness gets no bonus while 0.61 does, despite being nearly identical.
 
 ---
 
